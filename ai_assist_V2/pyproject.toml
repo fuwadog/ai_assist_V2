@@ -1,0 +1,48 @@
+[project]
+name = "ai-assist-v2"
+version = "0.2.0"
+description = "AI-powered CLI for codebase analysis"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "click>=8.1.7",
+    "rich>=13.7.0",
+    "openai>=1.12.0",
+    "tree-sitter>=0.20.4",
+    "tree-sitter-python>=0.20.4",
+    "python-dotenv>=1.0.0",
+    "tiktoken>=0.5.2",
+    "pathvalidate>=3.2.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.3.0",
+    "mypy>=1.9.0",
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["--cov=core", "--cov=tools", "--cov=utils", "--cov=workers", "--cov-report=term-missing"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["core", "utils", "tools", "workers", "main.py", "config.py"]
