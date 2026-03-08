@@ -1,0 +1,40 @@
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.log
+
+# Environment
+.env.local
+.env
+
+# Data / DB
+data/ai_assistant.db
+
+# Tree-sitter build artifacts
+build/
+
+# Mypy cache
+.mypy_cache/
+
+# Pytest cache
+.pytest_cache/
+.coverage
+
+# IDE
+.vscode/
+.idea/
+
+# OS / System
+.DS_Store
+Thumbs.db
+
+# Project-specific Exclusions
+/phase/
+/*.md
+!/README.md
